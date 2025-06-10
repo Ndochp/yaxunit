@@ -49,8 +49,8 @@ const config = {
               rehypeShiki,
               {
                 themes: {
-                  light: "github-light-default",
-                  dark: "github-dark-default"
+                  light: "light-plus",
+                  dark: "dark-plus"
                 },
                 langs: ["bsl", "json"],
               },
