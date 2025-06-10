@@ -30,7 +30,19 @@
 }
 
 pre code {
-  background-color: var(--ifm-code-background);
+  background-color: var(--ifm-code-background) !important;
+}
+
+pre {
+  background: none !important;
+}
+
+[data-theme="dark"] pre {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+[data-theme="dark"] pre span {
+  color: var(--shiki-dark) !important;
 }
 
 /* Material style for tables */

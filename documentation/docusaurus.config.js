@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import rehypeShiki from "@shikijs/rehype";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -44,6 +44,18 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/bia-technologies/yaxunit/blob/develop/documentation/',
+          beforeDefaultRehypePlugins: [ 
+            [ 
+              rehypeShiki,
+              {
+                themes: {
+                  light: "github-light-default",
+                  dark: "github-dark-default"
+                },
+                langs: ["bsl", "json"],
+              },
+            ],
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -163,11 +175,7 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} BIA Technologies, Inc. Built with Docusaurus.`,
       },
-      prism: {
-        theme: prismThemes.vsLight,
-        darkTheme: prismThemes.vsDark,
-        additionalLanguages: ['bsl', 'json'],
-      },
+
       docs: {
         sidebar: {
           hideable: true,
