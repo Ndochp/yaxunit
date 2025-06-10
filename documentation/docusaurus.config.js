@@ -45,10 +45,6 @@ const config = {
           editUrl:
             'https://github.com/bia-technologies/yaxunit/blob/develop/documentation/',
         },
-        blog: {
-          blogTitle: 'Заметки',
-          onUntruncatedBlogPosts: 'ignore'
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
