@@ -15,7 +15,7 @@
   <containedObjects classId="9de14907-ec23-4a07-96f0-85521cb6b53b" objectId="4fb22a5b-2d3a-445e-b9c7-b51a4e59f82a"/>
   <containedObjects classId="51f2d5d8-ea4d-4064-8892-82951750031e" objectId="d26a61dd-a7a6-44b9-b131-be84fcf8c021"/>
   <containedObjects classId="e68182ea-4237-4383-967f-90c1e3370bc7" objectId="8339b2da-95e3-48c0-b355-f1f6179cebb2"/>
-  <keepMappingToExtendedConfigurationObjectsByIDs>true</keepMappingToExtendedConfigurationObjectsByIDs>
+ <keepMappingToExtendedConfigurationObjectsByIDs>true</keepMappingToExtendedConfigurationObjectsByIDs>
   <namePrefix>ЮТ</namePrefix>
   <configurationExtensionCompatibilityMode>8.3.10</configurationExtensionCompatibilityMode>
   <configurationExtensionPurpose>AddOn</configurationExtensionPurpose>
@@ -30,6 +30,7 @@
     <languageCode>ru</languageCode>
   </languages>
   <subsystems>Subsystem.ЮТДвижок</subsystems>
+  <subsystems>Subsystem.ЮТКодогенерация</subsystems>
   <subsystems>Subsystem.ЮТПодключаемыеМодули</subsystems>
   <subsystems>Subsystem.ЮТПубличный</subsystems>
   <commonPictures>CommonPicture.ЮТЗапустить</commonPictures>
@@ -135,6 +136,7 @@
   <commonModules>CommonModule.ЮТПредикатыСлужебныйКлиентСервер</commonModules>
   <commonModules>CommonModule.ЮТПреобразованияСлужебный</commonModules>
   <commonModules>CommonModule.ЮТПроверкиСлужебный</commonModules>
+  <commonModules>CommonModule.ЮТРаботаСТекстом</commonModules>
   <commonModules>CommonModule.ЮТРазрешениеЗависимостейСлужебныйВызовСервера</commonModules>
   <commonModules>CommonModule.ЮТРазрешениеЗависимостейСлужебныйКлиент</commonModules>
   <commonModules>CommonModule.ЮТРеактивныйКлиент</commonModules>
@@ -150,6 +152,7 @@
   <commonModules>CommonModule.ЮТСравнениеСлужебныйСервер</commonModules>
   <commonModules>CommonModule.ЮТСтроки</commonModules>
   <commonModules>CommonModule.ЮТТестовыеДанные</commonModules>
+  <commonModules>CommonModule.ЮТТестовыеДанныеПереопределяемый</commonModules>
   <commonModules>CommonModule.ЮТТестовыеДанныеСлужебный</commonModules>
   <commonModules>CommonModule.ЮТТестовыеДанныеСлужебныйВызовСервера</commonModules>
   <commonModules>CommonModule.ЮТТестовыеДанныеСлужебныйСервер</commonModules>
@@ -173,7 +176,9 @@
   <dataProcessors>DataProcessor.ЮТГенераторКода</dataProcessors>
   <dataProcessors>DataProcessor.ЮТКонструкторДвижений</dataProcessors>
   <dataProcessors>DataProcessor.ЮТКонструкторОбъектаXDTO</dataProcessors>
+  <dataProcessors>DataProcessor.ЮТКонструкторТекста</dataProcessors>
   <dataProcessors>DataProcessor.ЮТКонструкторТестовыхДанных</dataProcessors>
+  <dataProcessors>DataProcessor.ЮТПомощникДляСозданияТестовыхДанных</dataProcessors>
   <dataProcessors>DataProcessor.ЮТРедакторМакетаСТестовымиДанными</dataProcessors>
   <dataProcessors>DataProcessor.ЮТРедакторОбработки</dataProcessors>
   <dataProcessors>DataProcessor.ЮТРедакторТестов</dataProcessors>
