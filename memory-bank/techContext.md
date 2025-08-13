@@ -3,7 +3,7 @@
 — Обновлено: автоматически из репозитория на момент генерации.
 
 #### Платформа и язык
-- **Платформа**: 1С:Предприятие 8.3.21.1895 (см. `tools/local-test/default.env`)
+- **Платформа**: 1С:Предприятие 8.3.21.1895
 - **Язык**: BSL (1С)
 - ** IDE/Инструменты разработки**: 1C:EDT 2023.3.5+10, Конфигуратор 1С
 
@@ -15,12 +15,6 @@
 - **Демо-конфигурация для тестов**: `fixtures/demo-configuration`
 - **Схема jUnit**: `fixtures/junit/JUnit.xsd`
 - **Документация**: `documentation/` (Docusaurus, Node/Yarn), сборка — `documentation/build-full-doc.sh`
-
-#### Локальная среда и инфраструктура
-- **Локальный сервер 1С (Docker)**: `tools/local-test/onec-server/`
-  - `docker-compose.yml`, `build/Dockerfile`, `build/conf.cfg`, `build/logcfg.xml`
-  - Скрипты установки/обновления: `build/scripts/*.sh`
-- **Переменные окружения**: `tools/local-test/default.env` (`ONEC_VERSION`, `EDT_VERSION`)
 
 #### CI/CD и качество
 - **GitHub Actions**: значки в `README.md` — анализ Sonar, тесты, сборка документации

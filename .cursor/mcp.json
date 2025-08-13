@@ -8,7 +8,7 @@
           "tools/mcp-test-runner/mcp-yaxunit-runner.jar"
         ], 
         "env": {
-          "LOGGING_LEVEL_ROOT": "DEBUG",
+          "LOGGING_LEVEL_ROOT": "INFO",
           "SPRING_CONFIG_IMPORT": "file:tools/mcp-test-runner/project-config.yml, file:tools/mcp-test-runner/local-env-config.yml"
         }
       }
