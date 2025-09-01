@@ -61,6 +61,7 @@
   <commonModules>CommonModule.ОМ_ЮТОбщий</commonModules>
   <commonModules>CommonModule.ОМ_ЮТОтчетAllureСлужебный</commonModules>
   <commonModules>CommonModule.ОМ_ЮТОтчетСлужебный</commonModules>
+  <commonModules>CommonModule.ОМ_ЮТПараметрыЗапускаСлужебный</commonModules>
   <commonModules>CommonModule.ОМ_ЮТПодключаемыеМодулиСлужебныйВызовСервера</commonModules>
   <commonModules>CommonModule.ОМ_ЮТПодражатель</commonModules>
   <commonModules>CommonModule.ОМ_ЮТПодражатель_Банки</commonModules>

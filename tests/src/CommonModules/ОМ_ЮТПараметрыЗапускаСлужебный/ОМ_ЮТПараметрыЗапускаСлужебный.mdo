@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a8a378d3-5221-4d1a-9631-f1f33f81e33f">
+  <name>ОМ_ЮТПараметрыЗапускаСлужебный</name>
+  <synonym>
+    <key>ru</key>
+    <value>ОМ ЮТПараметрыЗапускаСлужебный</value>
+  </synonym>
+  <comment>Тесты для модуля ЮТПараметрыЗапускаСлужебный</comment>
+  <server>false</server>
+  <clientManagedApplication>true</clientManagedApplication>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
