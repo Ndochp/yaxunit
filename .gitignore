@@ -42,4 +42,5 @@ workpath/
 
 /context/
 *.log
+*.log.*.gz
 tools/mcp-test-runner/local-env-config.yml
