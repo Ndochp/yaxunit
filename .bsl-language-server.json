@@ -6,6 +6,9 @@
         "parameters": {
             "LineLength": {
                 "maxLineLength": 150
+            },
+            "Typo": {
+                "userWordsToIgnore": "Инлайн,Кодогенерация"
             }
         }
     }
