@@ -39,3 +39,8 @@ documentation/api/
 /tools/**/distr/
 workpath/
 .env
+
+/context/
+*.log
+*.log.*.gz
+tools/mcp-test-runner/local-env-config.yml

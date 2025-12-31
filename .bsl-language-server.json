@@ -6,7 +6,11 @@
         "parameters": {
             "LineLength": {
                 "maxLineLength": 150
-            }
+            },
+            "Typo": {
+                "userWordsToIgnore": "Инлайн,Кодогенерации,Сериализовать"
+            },
+            "CommonModuleInvalidType": false
         }
     }
 }

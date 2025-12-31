@@ -58,11 +58,18 @@ jobs:
         mkdir -p ~/.1cv8/1C/1cv8/conf/
         echo "DisableUnsafeActionProtection=.*" >>~/.1cv8/1C/1cv8/conf/conf.cfg
   
+    - name: Установка xvfb и зависимостей (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb x11-utils net-tools libgstreamer-plugins-base1.0-0 gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+        sudo ldconfig
+
     - name: Подготовка окружения (Windows)
       if: runner.os == 'Windows'
       run: |
         mkdir -p "C:\Program Files\1cv8\conf"
-        "DisableUnsafeActionProtection=.*" | Out-File -FilePath "C:\Program Files\1cv8\conf\conf.cfg" -Encoding utf8 -Append
+        "DisableUnsafeActionProtection=.*" | Out-File -FilePath "C:\Program Files\1cv8\conf\conf.cfg" -Encoding Unicode -Append
   
     - name: Определение "короткой" локали
       id: short_locale
@@ -123,21 +130,45 @@ jobs:
 
     - name: Запуск тестирования (Linux)
       if: runner.os == 'Linux'
-      uses: coactions/setup-xvfb@v1
-      with:
-        run: |
-          ibsrv --db-path=file-db --daemon
-          1cv8c /WS "http://localhost:8314" /C"RunUnitTests=yaxunit-config.json" /L ${{ steps.short_locale.outputs.substring }} /VL ${{ inputs.locale }} /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+      run: |
+        # Запуск ibsrv в фоне
+        ibsrv --db-path=file-db --daemon &
+        sleep 5
+        
+        # Проверка, что сервер запустился
+        echo "Проверка состояния ibsrv..."
+        ps aux | grep ibsrv || echo "ibsrv не найден в процессах"
+        
+        # Проверка доступности порта
+        netstat -tlnp | grep 8314 || echo "Порт 8314 не прослушивается"
+        
+        # Запуск тестов через xvfb-run
+        echo "Запуск тестов через xvfb-run..."
+        xvfb-run -a -s "-screen 0 1024x768x24" 1cv8c /WS "http://localhost:8314" /C"RunUnitTests=yaxunit-config.json" /L ${{ steps.short_locale.outputs.substring }} /VL ${{ inputs.locale }} /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log
+        
+        # Проверка результата выполнения
+        echo "Код завершения тестов: $?"
       env:
         LANG: "${{ inputs.locale }}.UTF-8"
+        DISPLAY: ":99"
       timeout-minutes: 10
 
     - name: Запуск тестирования (Windows)
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
-        Start-Process ibsrv.exe -ArgumentList "--db-path=file-db"
-        Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8314" /C"RunUnitTests=yaxunit-config.json" /L ${{ steps.short_locale.outputs.substring }} /VL ${{ inputs.locale }} /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out 1cv8c-output.log'
+        # Запуск ibsrv в фоне
+        Start-Process ibsrv.exe -ArgumentList "--db-path=file-db" -WindowStyle Hidden
+        Start-Sleep -Seconds 5
+        # Проверка, что сервер запустился
+        Write-Host "Проверка состояния ibsrv..."
+        Get-Process ibsrv -ErrorAction SilentlyContinue | Select-Object ProcessName, Id, CPU
+        # Запуск тестов
+        Write-Host "Запуск тестов..."
+        $result = Start-Process -NoNewWindow -PassThru -Wait 1cv8c.exe -ArgumentList '/WS "http://localhost:8314" /C"RunUnitTests=yaxunit-config.json" /L ${{ steps.short_locale.outputs.substring }} /VL ${{ inputs.locale }} /DisableStartupDialogs /DisableStartupMessages /DisableUnrecoverableErrorMessage /Out output.log'
+        # Проверка результата выполнения
+        Write-Host "Код завершения тестов: $($result.ExitCode)"
+        if ($result.ExitCode -ne 0) { exit $result.ExitCode }
       timeout-minutes: 10
 
     - name: Сохранение файла отчета
@@ -166,4 +197,23 @@ jobs:
       if: always()
       run: cat output.log
       continue-on-error: true
+
+    - name: Очистка процессов (Linux)
+      if: always() && runner.os == 'Linux'
+      run: |
+        echo "Очистка процессов ibsrv..."
+        pkill -f ibsrv || echo "Процессы ibsrv не найдены"
+        pkill -f xvfb || echo "Процессы xvfb не найдены"
+
+    - name: Очистка процессов (Windows)
+      if: always() && runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        Write-Host "Очистка процессов ibsrv..."
+        try {
+            Get-Process ibsrv -ErrorAction SilentlyContinue | Stop-Process -Force
+            Write-Host "Процессы ibsrv остановлены"
+        } catch {
+            Write-Host "Ошибка остановки процессов ibsrv: $_"
+        }
   

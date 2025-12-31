@@ -28,3 +28,32 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+pre code {
+  background-color: var(--ifm-code-background) !important;
+}
+
+pre {
+  background: none !important;
+}
+
+[data-theme="dark"] pre {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+[data-theme="dark"] pre span {
+  color: var(--shiki-dark) !important;
+}
+
+/* Material style for tables */
+table {
+  display: table;
+  width: 100%;
+}
+
+table th, table td {
+  border: none;
+  text-align: left;
+}
+
+

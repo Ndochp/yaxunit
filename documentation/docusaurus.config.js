@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import rehypeShiki from "@shikijs/rehype";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -22,7 +22,6 @@ const config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -44,14 +43,23 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/bia-technologies/yaxunit/blob/develop/documentation/',
-        },
-        blog: {
-          blogTitle: 'Заметки',
-          onUntruncatedBlogPosts: 'ignore'
+          beforeDefaultRehypePlugins: [ 
+            [ 
+              rehypeShiki,
+              {
+                themes: {
+                  light: "light-plus",
+                  dark: "dark-plus"
+                },
+                langs: ["bsl", "json"],
+              },
+            ],
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        blog: false,
       }),
     ]
   ],
@@ -126,7 +134,6 @@ const config = {
             position: 'left',
             label: 'Руководство разработчика',
           },          
-          {to: 'blog', label: 'Заметки', position: 'left'},
           {
             href: 'https://github.com/bia-technologies/yaxunit',
             label: 'bia-technologies/yaxunit',
@@ -167,11 +174,7 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} BIA Technologies, Inc. Built with Docusaurus.`,
       },
-      prism: {
-        theme: prismThemes.vsLight,
-        darkTheme: prismThemes.vsDark,
-        additionalLanguages: ['bsl', 'json'],
-      },
+
       docs: {
         sidebar: {
           hideable: true,
@@ -179,10 +182,15 @@ const config = {
         },
       },
     }),
-    markdown: {
-      mermaid: true,
+
+  markdown: {
+    mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
     },
-    themes: ['@docusaurus/theme-mermaid', 
+  },
+
+  themes: ['@docusaurus/theme-mermaid', 
     ["@easyops-cn/docusaurus-search-local", {
       hashed: true,
       language: ["en", "ru"],
