@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonTemplate xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c2e3f4a5-6b7c-8d9e-0f1a-2b3c4d5e6f7a">
+  <name>ЮТ_СловарьПодражателя_Локация_Города_en</name>
+  <synonym>
+    <key>ru</key>
+    <value>Подражатель города en</value>
+  </synonym>
+  <templateType>TextDocument</templateType>
+</mdclass:CommonTemplate>

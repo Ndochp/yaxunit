@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonTemplate xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e18acbc5-8cde-485b-b6bf-94bca5e88a38">
+  <name>ЮТ_СловарьПодражателя_Коммерция_Товары_en</name>
+  <synonym>
+    <key>ru</key>
+    <value>Подражатель товаров en</value>
+  </synonym>
+  <templateType>TextDocument</templateType>
+</mdclass:CommonTemplate>
