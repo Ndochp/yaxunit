@@ -47,8 +47,20 @@
   <commonPictures>CommonPicture.ЮТУпал</commonPictures>
   <commonPictures>CommonPicture.ЮТУспешно</commonPictures>
   <commonPictures>CommonPicture.ЮТЭлементыТестов</commonPictures>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Коммерция_Категории_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Коммерция_Категории_ru</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Коммерция_Товары_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Коммерция_Товары_ru</commonTemplates>
   <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Компании_Наименования_ru</commonTemplates>
   <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Компании_ПрефиксыНаименований_ru</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Города_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Города_ru</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Области_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Области_ru</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Страны_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Страны_ru</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Улицы_en</commonTemplates>
+  <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Локация_Улицы_ru</commonTemplates>
   <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Люди_ЖенскиеИмена_ru</commonTemplates>
   <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Люди_ЖенскиеОтчества_ru</commonTemplates>
   <commonTemplates>CommonTemplate.ЮТ_СловарьПодражателя_Люди_ЖенскиеФамилии_ru</commonTemplates>
@@ -128,7 +140,9 @@
   <commonModules>CommonModule.ЮТПодключаемыеМодулиСлужебныйВызовСервера</commonModules>
   <commonModules>CommonModule.ЮТПодражатель</commonModules>
   <commonModules>CommonModule.ЮТПодражатель_Банки</commonModules>
+  <commonModules>CommonModule.ЮТПодражатель_Коммерция</commonModules>
   <commonModules>CommonModule.ЮТПодражатель_Компании</commonModules>
+  <commonModules>CommonModule.ЮТПодражатель_Локация</commonModules>
   <commonModules>CommonModule.ЮТПодражатель_Люди</commonModules>
   <commonModules>CommonModule.ЮТПодражательСлужебный</commonModules>
   <commonModules>CommonModule.ЮТПодражательСлужебныйВызовСервера</commonModules>
